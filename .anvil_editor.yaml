@@ -1,9 +1,14 @@
 unique_ids:
   assets:
+    OIP.webp: '1772618611295952329199956.1366'
     standard-page.html: TWGOL4I7YVZV3AJNFVPXTWWFIJFQ3YXI
     theme.css: NQISNLFGIAXLKNYIP56LAJ57ZVOUFTW6
   forms:
-    Form1: QUPLSEJFIAAPATLZE7WFOFKFKUYYR6MQ
+    Startseite: QUPLSEJFIAAPATLZE7WFOFKFKUYYR6MQ
+    Startseite.Medizin: '1772619867918685475202761.3302'
+    Startseite.Organisation: '1772619909595144883746640.578'
+    Startseite.Statistik: '1772619918910606888853336.8152'
   modules: {}
   scripts: {}
-  server_modules: {}
+  server_modules:
+    ServerModule1: '1772619114850243121243599.7544'

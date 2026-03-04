@@ -1,4 +1,23 @@
 allow_embedding: false
+db_schema:
+  files:
+    client: none
+    columns:
+    - admin_ui: {order: 0, width: 200}
+      client_hidden: false
+      name: path
+      type: string
+    - admin_ui: {order: 1, width: 200}
+      client_hidden: false
+      name: file
+      type: media
+    - admin_ui: {order: 2, width: 200}
+      client_hidden: false
+      name: file_version
+      type: string
+    server: full
+    title: Files
+metadata: {description: Eine Website fürs managen von einem Krankenhaus, logo_img: 'asset:OIP.webp', title: Krankenhaus Management}
 name: Krankenhaus
 package_name: Krankenhaus
 runtime_options:
@@ -10,4 +29,8 @@ services:
 - client_config: {}
   server_config: {}
   source: /runtime/services/tables.yml
-startup_form: Form1
+- client_config: {}
+  server_config: {file_table: files}
+  source: /runtime/services/anvil/files.yml
+startup: {module: Startseite, type: form}
+startup_form: null
