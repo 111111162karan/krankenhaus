@@ -3,14 +3,7 @@ components:
   name: content_panel
   properties: {}
   type: ColumnPanel
-- components:
-  - data_bindings: []
-    event_bindings: {}
-    layout_properties: {}
-    name: drop_down_1
-    properties:
-      items: [Startseite, Medizin, Organisation, Statistik]
-    type: DropDown
+- components: []
   layout_properties: {slot: nav-right}
   name: navbar_links
   properties: {}
@@ -19,6 +12,33 @@ components:
   name: headline_1
   properties: {role: headline, text: Krankenhaus}
   type: Label
+- event_bindings: {}
+  layout_properties: {slot: default}
+  name: Dashboard_Button
+  properties:
+    role: primary-color
+    spacing:
+      padding: [7, '130', null, 130]
+    text: Dashboard
+  type: Button
+- event_bindings: {}
+  layout_properties: {slot: default}
+  name: Patienten_Button
+  properties:
+    role: primary-color
+    spacing:
+      padding: [null, '130', null, '140']
+    text: Patienten
+  type: Button
+- event_bindings: {}
+  layout_properties: {slot: default}
+  name: Termin_Button
+  properties:
+    role: primary-color
+    spacing:
+      padding: [null, '140', null, '140']
+    text: Termine
+  type: Button
 container:
   properties: {html: '@theme:standard-page.html'}
   type: HtmlTemplate

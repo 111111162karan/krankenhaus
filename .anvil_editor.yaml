@@ -5,9 +5,9 @@ unique_ids:
     theme.css: NQISNLFGIAXLKNYIP56LAJ57ZVOUFTW6
   forms:
     Startseite: QUPLSEJFIAAPATLZE7WFOFKFKUYYR6MQ
-    Startseite.Medizin: '1772619867918685475202761.3302'
-    Startseite.Organisation: '1772619909595144883746640.578'
-    Startseite.Statistik: '1772619918910606888853336.8152'
+    Startseite.Dashboard: '1772619867918685475202761.3302'
+    Startseite.Patienten: '1772619909595144883746640.578'
+    Startseite.Termine: '1772619918910606888853336.8152'
   modules: {}
   scripts: {}
   server_modules:

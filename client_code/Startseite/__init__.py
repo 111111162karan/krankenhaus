@@ -23,4 +23,19 @@ class Startseite(StartseiteTemplate):
       open_form('Startseite.Organisation')
     elif self.drop_down_1.selected_value == "Statistik":
       open_form('Startseite.Statistik')
+
+  @handle("Dashboard_Button", "click")
+  def Dashboard_Button_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    open_form('Startseite.Dashboard')
+
+  @handle("Patienten_Button", "click")
+  def Patienten_Button_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    open_form('Startseite.Patienten')
+
+  @handle("Termin_Button", "click")
+  def Termin_Button_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    open_form('Startseite.Termine')
       

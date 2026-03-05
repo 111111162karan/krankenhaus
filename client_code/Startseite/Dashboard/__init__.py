@@ -1,12 +1,13 @@
-from ._anvil_designer import MedizinTemplate
+from ._anvil_designer import DashboardTemplate
 from anvil import *
+import plotly.graph_objects as go
 import anvil.server
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
+import plotly.graph_objects as go
 
-
-class Medizin(MedizinTemplate):
+class Dashboard(DashboardTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
@@ -24,4 +25,16 @@ class Medizin(MedizinTemplate):
       open_form('Startseite.Organisation')
     elif self.drop_down_1.selected_value == "Statistik":
       open_form('Startseite.Statistik')
+
+  @handle("plot_1", "show")
+  def plot_1_show(self, **event_args):
+    """This method is called when the Plot is shown on the screen"""
+    daten = anvil.server.call('get_termine_status')
+    self.plot_1.data = [
+      go.Pie(
+        labels=["geplant", "abgeschlossen", "abgesagt"],
+        values=daten
+      )
+    ]
+    print(daten)
     
