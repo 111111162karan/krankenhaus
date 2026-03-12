@@ -29,13 +29,30 @@ def get_termine():
   return daten
 
 @anvil.server.callable
-def get_termine_status_count():
-  daten = query_database(
-    """SELECT Status, COUNT(*) 
-      FROM Termine
-      GROUP BY Status;""")
-  
-  return daten
+def get_termine_status():
+  query = """
+        SELECT Status, COUNT(*)
+        FROM Termine
+        GROUP BY Status
+    """
+
+  keys = ["geplant", "abgeschlossen", "abgesagt"]
+  status_dict = query_to_dict(query, keys)
+  return list(status_dict.values())
+
+
+@anvil.server.callable
+def query_to_dict(query, keys):
+  with sqlite3.connect(data_files["krankenhaus.db"]) as conn:
+    cursor = conn.cursor()
+    cursor.execute(query)
+    result = cursor.fetchall()
+    data_dict = {k: 0 for k in keys}
+    for key, value in result:
+      if key in data_dict:
+        data_dict[key] = value
+    return data_dict
+
 
 @anvil.server.callable
 def get_behandlungen():

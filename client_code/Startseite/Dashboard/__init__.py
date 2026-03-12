@@ -29,12 +29,14 @@ class Dashboard(DashboardTemplate):
   @handle("plot_1", "show")
   def plot_1_show(self, **event_args):
     """This method is called when the Plot is shown on the screen"""
+    self.show_termine_status_pie()
+
+  def show_termine_status_pie(self):
     daten = anvil.server.call('get_termine_status')
     self.plot_1.data = [
-      go.Pie(
-        labels=["geplant", "abgeschlossen", "abgesagt"],
-        values=daten
-      )
-    ]
-    print(daten)
+    go.Pie(
+      labels=["geplant", "abgeschlossen", "abgesagt"],
+      values=daten
+    )
+  ]
     
