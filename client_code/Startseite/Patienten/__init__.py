@@ -10,16 +10,39 @@ class Patienten(PatientenTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
+    self.load_patienten()
 
-    # Any code you write here will run before the form opens.
-  @handle("drop_down_1", "change")
-  def drop_down_1_change(self, **event_args):
-    """This method is called when an item is selected"""
-    if self.drop_down_1.selected_value == "Startseite":
-      open_form('Startseite')
-    elif self.drop_down_1.selected_value == "Medizin":
-      open_form('Startseite.Medizin')
-    elif self.drop_down_1.selected_value == "Organisation":
-      open_form('Startseite.Organisation')
-    elif self.drop_down_1.selected_value == "Statistik":
-      open_form('Startseite.Statistik')
+
+def load_patienten(self):
+  daten = anvil.server.call('get_patienten_liste')
+
+  self.Patienten_Grid.items = [
+    {
+      "id": row[0],
+      "name": f"{row[1]} {row[2]}",
+      "geburtsdatum": row[3],
+      "geschlecht": row[4]
+    }
+    for row in daten
+  ]
+
+  @handle("button_1", "click")
+  def button_1_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    open_form('Startseite')
+
+  @handle("button_2", "click")
+  def button_2_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    open_form('Startseite.Dashboard')
+
+  @handle("button_3", "click")
+  def button_3_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    open_form('Startseite.Patienten')
+
+  @handle("button_4", "click")
+  def button_4_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    open_form('Startseite.Termine')
+

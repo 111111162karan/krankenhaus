@@ -63,3 +63,26 @@ def get_behandlungen():
 def get_zimmer():
   daten = query_database("SELECT * FROM Zimmer")
   return daten
+
+@anvil.server.callable
+def get_patienten_pro_station():
+  stationen_query = "SELECT DISTINCT Stationsname FROM Zimmer"
+  stationen = query_database(stationen_query)
+  keys = [s[0] for s in stationen]
+
+  query = """
+    SELECT z.Stationsname, COUNT(*)
+    FROM Zimmerbelegung zb
+    JOIN Zimmer z ON zb.ZimmerID = z.ZimmerID
+    GROUP BY z.Stationsname
+  """
+
+  station_dict = query_to_dict(query, keys)
+  return keys, list(station_dict.values())
+
+@anvil.server.callable
+def get_patienten_liste():
+  return query_database("""
+    SELECT PatientenID, Vorname, Nachname, Geburtsdatum, Geschlecht
+    FROM Patienten
+  """)

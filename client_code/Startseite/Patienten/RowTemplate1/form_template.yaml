@@ -1,0 +1,15 @@
+components:
+- event_bindings: {}
+  layout_properties: {column: URBFKR}
+  name: button_1
+  properties: {align: left, text: Details}
+  type: Button
+- event_bindings: {}
+  layout_properties: {column: BBGMXB}
+  name: button_2
+  properties: {align: left, text: Zimmer}
+  type: Button
+container:
+  properties: {align: left}
+  type: DataRowPanel
+is_package: true
