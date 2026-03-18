@@ -9,7 +9,11 @@ unique_ids:
     Startseite.Patienten: '1772619909595144883746640.578'
     Startseite.Patienten.RowTemplate1: '1773828509339306895172948.8858'
     Startseite.Patienten.RowTemplate1.Patient_Details: '1773830071179375987009980.62994'
+    Startseite.Patienten.RowTemplate1.Patient_Details.ItemTemplate1: '1773844228077657679958297.6113'
+    Startseite.Patienten.RowTemplate1.Zimmer_Details: '177384465352161094242859.526695'
     Startseite.Termine: '1772619918910606888853336.8152'
+    Startseite.Termine.RowTemplate2: '1773846004302294766291500.1159'
+    Startseite.Termine.RowTemplate2.Termin_Details: '1773846969375377628071915.4583'
   modules: {}
   scripts: {}
   server_modules:

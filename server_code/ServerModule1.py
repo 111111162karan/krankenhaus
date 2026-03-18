@@ -93,3 +93,48 @@ def get_patient_details(patient_id):
     FROM Patienten
     WHERE PatientenID = {patient_id}
   """)[0]
+
+@anvil.server.callable
+def get_zimmer_von_patient(patient_id):
+  return query_database(f"""
+    SELECT z.Stationsname, z.Zimmernummer, z.Bettenanzahl
+    FROM Zimmerbelegung zb
+    JOIN Zimmer z ON zb.ZimmerID = z.ZimmerID
+    WHERE zb.PatientenID = {patient_id}
+    ORDER BY Einzugsdatum DESC LIMIT 1
+  """)
+
+@anvil.server.callable
+def get_termine_liste():
+  return query_database("""
+    SELECT t.TerminID,
+           t.Datum,
+           t.Uhrzeit,
+           t.Terminart,
+           t.Status,
+           p.Vorname || ' ' || p.Nachname,
+           a.Vorname || ' ' || a.Nachname
+    FROM Termine t
+    JOIN Patienten p ON t.PatientenID = p.PatientenID
+    JOIN Aerzte a ON t.ArztID = a.ArztID
+  """)
+  
+@anvil.server.callable
+def update_termin_status(termin_id, status):
+  query_database(f"""
+    UPDATE Termine
+    SET Status = '{status}'
+    WHERE TerminID = {termin_id}
+  """)
+  
+@anvil.server.callable
+def get_termin_details(termin_id):
+  return query_database(f"""
+    SELECT t.Datum, t.Uhrzeit, t.Terminart, t.Status,
+           p.Vorname, p.Nachname,
+           a.Vorname, a.Nachname, a.Fachgebiet
+    FROM Termine t
+    JOIN Patienten p ON t.PatientenID = p.PatientenID
+    JOIN Aerzte a ON t.ArztID = a.ArztID
+    WHERE t.TerminID = {termin_id}
+  """)[0]

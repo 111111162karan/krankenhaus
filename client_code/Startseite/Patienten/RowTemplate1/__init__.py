@@ -22,4 +22,4 @@ class RowTemplate1(RowTemplate1Template):
   @handle("button_2", "click")
   def button_2_click(self, **event_args):
     """This method is called when the button is clicked"""
-    open_form('Zimmer_Details', patient_id=self.item['id'])
+    open_form('Startseite.Patienten.RowTemplate1.Zimmer_Details', patient_id=self.item['id'])

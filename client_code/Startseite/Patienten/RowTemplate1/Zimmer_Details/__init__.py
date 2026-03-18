@@ -1,4 +1,4 @@
-from ._anvil_designer import Patient_DetailsTemplate
+from ._anvil_designer import Zimmer_DetailsTemplate
 from anvil import *
 import anvil.server
 import anvil.tables as tables
@@ -6,23 +6,19 @@ import anvil.tables.query as q
 from anvil.tables import app_tables
 
 
-class Patient_Details(Patient_DetailsTemplate):
-  def __init__(self, patient_id=None, **properties):
+class Zimmer_Details(Zimmer_DetailsTemplate):
+  def __init__(self,patient_id=None, **properties):
+    # Set Form properties and Data Bindings.
     self.init_components(**properties)
+    daten = anvil.server.call('get_zimmer_von_patient', patient_id)
+    if daten:
+      z = daten[0]
+      self.label_station.text = f"Station: {z[0]}"
+      self.label_zimmer.text = f"Zimmer: {z[1]}"
+      self.label_betten.text = f"Betten: {z[2]}"
+    else:
+      self.label_station.text = "Kein Zimmer zugewiesen"
 
-    daten = anvil.server.call('get_patient_details', patient_id)
-  
-    name = f"{daten[0]} {daten[1]}"
-    geburt = daten[2]
-    vers = daten[3]
-  
-    
-    from datetime import datetime
-    alter = datetime.now().year - int(geburt[:4])
-  
-    self.label_name.text = name
-    self.label_alter.text = f"Alter: {alter}"
-    self.label_vers.text = f"VersNr: {vers}"
 
   @handle("button_1", "click")
   def button_1_click(self, **event_args):
@@ -47,4 +43,4 @@ class Patient_Details(Patient_DetailsTemplate):
   @handle("button_5", "click")
   def button_5_click(self, **event_args):
     """This method is called when the button is clicked"""
-    open_form('Startseite.Patienten')
+    open_form("Startseite.Patienten")

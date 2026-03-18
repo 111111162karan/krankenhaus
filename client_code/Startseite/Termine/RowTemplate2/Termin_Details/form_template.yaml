@@ -1,22 +1,30 @@
 components:
 - components:
-  - components:
-    - name: repeating_panel_1
-      properties: {item_template: Startseite.Termine.RowTemplate2}
-      type: RepeatingPanel
-    layout_properties: {grid_position: 'QQPFHI,BRLACJ'}
-    name: data_grid_1
-    properties:
-      columns:
-      - {data_key: datum, id: JKSDUP, title: Datum}
-      - {data_key: uhrzeit, id: VJQQOR, title: Uhrzeit}
-      - {data_key: art, id: OJLQEN, title: Art}
-      - {data_key: status, id: WOTFTP, title: Status}
-      - {data_key: patient, id: LEIQDB, title: Patient}
-      - {data_key: arzt, id: GJWRPZ, title: Arzt}
-      - {data_key: details, id: CFBLSS, title: Details}
-      - {data_key: aktionen, id: MODPYT, title: Aktionen}
-    type: DataGrid
+  - event_bindings: {}
+    layout_properties: {grid_position: 'GPOFLP,UNMDDY'}
+    name: button_5
+    properties: {text: Zurück}
+    type: Button
+  - layout_properties: {grid_position: 'GPOFLP,BZTCQN GLWDVO,SPLGTV'}
+    name: label_datum
+    properties: {}
+    type: Label
+  - layout_properties: {grid_position: 'GPOFLP,BZTCQN JIANVG,DOWJNI'}
+    name: label_art
+    properties: {}
+    type: Label
+  - layout_properties: {grid_position: 'GPOFLP,BZTCQN YOKPOW,DWWRWV'}
+    name: label_status
+    properties: {}
+    type: Label
+  - layout_properties: {grid_position: 'GPOFLP,BZTCQN VGGBHS,KQSWKW'}
+    name: label_patient
+    properties: {}
+    type: Label
+  - layout_properties: {grid_position: 'GPOFLP,BZTCQN KFNPTE,OCTUKR'}
+    name: label_arzt
+    properties: {}
+    type: Label
   layout_properties: {slot: default}
   name: content_panel
   properties: {}
@@ -28,7 +36,7 @@ components:
   type: FlowPanel
 - layout_properties: {slot: title}
   name: headline_1
-  properties: {role: headline, text: Termine}
+  properties: {role: headline, text: Patienten}
   type: Label
 - components:
   - event_bindings: {}

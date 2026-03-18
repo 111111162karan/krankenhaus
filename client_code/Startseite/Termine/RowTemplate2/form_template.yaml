@@ -1,0 +1,18 @@
+components:
+- event_bindings: {}
+  layout_properties: {column: CFBLSS}
+  name: button_1
+  properties: {text: Details}
+  type: Button
+- event_bindings: {}
+  layout_properties: {column: MODPYT}
+  name: button_2
+  properties: {text: fertig}
+  type: Button
+- event_bindings: {}
+  layout_properties: {column: MODPYT}
+  name: button_3
+  properties: {text: absagen}
+  type: Button
+container: {type: DataRowPanel}
+is_package: true
