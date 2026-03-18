@@ -1,19 +1,5 @@
 components:
-- components:
-  - components:
-    - name: Patienten_Panel
-      properties: {item_template: Startseite.Patienten.RowTemplate1}
-      type: RepeatingPanel
-    layout_properties: {grid_position: 'KQWKRV,OCUQAY'}
-    name: Patienten_Grid
-    properties:
-      columns:
-      - {data_key: name, id: JKSDUP, title: Name}
-      - {data_key: geburtsdatum, id: VJQQOR, title: Geburtsdatum}
-      - {data_key: geschlecht, id: OJLQEN, title: Geschlecht}
-      - {data_key: details, id: URBFKR, title: Details}
-      - {data_key: zimmer, id: BBGMXB, title: Zimmer}
-    type: DataGrid
+- components: []
   layout_properties: {slot: default}
   name: content_panel
   properties: {}

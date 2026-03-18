@@ -86,3 +86,10 @@ def get_patienten_liste():
     SELECT PatientenID, Vorname, Nachname, Geburtsdatum, Geschlecht
     FROM Patienten
   """)
+@anvil.server.callable
+def get_patient_details(patient_id):
+  return query_database(f"""
+    SELECT Vorname, Nachname, Geburtsdatum, Versicherungsnummer
+    FROM Patienten
+    WHERE PatientenID = {patient_id}
+  """)[0]

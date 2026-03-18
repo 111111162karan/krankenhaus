@@ -8,6 +8,7 @@ unique_ids:
     Startseite.Dashboard: '1772619867918685475202761.3302'
     Startseite.Patienten: '1772619909595144883746640.578'
     Startseite.Patienten.RowTemplate1: '1773828509339306895172948.8858'
+    Startseite.Patienten.RowTemplate1.Patient_Details: '1773830071179375987009980.62994'
     Startseite.Termine: '1772619918910606888853336.8152'
   modules: {}
   scripts: {}

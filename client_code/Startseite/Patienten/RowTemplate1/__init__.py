@@ -17,7 +17,7 @@ class RowTemplate1(RowTemplate1Template):
   def button_1_click(self, **event_args):
     """This method is called when the button is clicked"""
     anvil.server.call('get_patient_details', self.item['id'])
-    open_form('Patienten_Details', patient_id=self.item['id'])
+    open_form('Startseite.Patienten.RowTemplate1.Patient_Details', patient_id=self.item['id'])
 
   @handle("button_2", "click")
   def button_2_click(self, **event_args):
